@@ -1,0 +1,92 @@
+// RESPONSIVE BREAKPOINTS
+$vp-huge: 90em; // 1440px
+$vp-largest: 75em; // 1200px
+$vp-navbar: 71.5em; // 1150px
+$vp-large: 62.5em; // 1000px
+$vp-medium: 56.2em; // 900px
+$vp-tablet-small: 44em; // >700px
+$vp-small: 37.5em; // 600px
+
+@mixin huge-screen {
+  @media (max-width: $vp-huge) {
+    @content;
+  }
+}
+
+@mixin scrollbars(
+  $size,
+  $foreground-color,
+  $background-color: mix($foreground-color, white, 50%)
+) {
+  // For Google Chrome
+  &::-webkit-scrollbar {
+    width: $size;
+    height: $size;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $foreground-color;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $background-color;
+  }
+
+  // For Internet Explorer
+  & {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+  }
+}
+
+
+@mixin flex($direction) {
+  display: flex;
+  flex-direction: $direction;
+}
+
+@mixin column {
+  display: flex;
+  flex-direction: column;
+}
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin large-screen {
+  @media (max-width: $vp-largest) {
+    @content;
+  }
+}
+
+@mixin medium-screen {
+  @media (max-width: $vp-navbar) {
+    @content;
+  }
+}
+
+@mixin regular-screen {
+  @media (max-width: $vp-large) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: $vp-medium) {
+    @content;
+  }
+}
+
+@mixin tablet-small {
+  @media (max-width: $vp-tablet-small) {
+    @content;
+  }
+}
+
+@mixin phone {
+  @media (max-width: $vp-small) {
+    @content;
+  }
+}
